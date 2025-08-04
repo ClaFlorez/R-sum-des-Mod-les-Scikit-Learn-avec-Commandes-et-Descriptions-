@@ -207,4 +207,47 @@ model.score(X_test, y_test)  # optionnel
 
 ---
 
+### 🧰 Structure Universelle Scikit-Learn – Exemple Complet
+
+Voici un exemple complet que l'on peut adapter à presque tous les modèles (classification, régression, etc.) :
+
+```python
+# Étape 1 : Importation
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression  # Exemple, remplaçable
+from sklearn.metrics import accuracy_score, classification_report
+
+# Étape 2 : Chargement des données
+from sklearn.datasets import load_iris
+data = load_iris()
+X = pd.DataFrame(data.data, columns=data.feature_names)
+y = pd.Series(data.target)
+
+# Étape 3 : Séparation train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Étape 4 : Normalisation (facultatif mais recommandé)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Étape 5 : Entraînement du modèle
+model = LogisticRegression()
+model.fit(X_train_scaled, y_train)
+
+# Étape 6 : Prédictions
+y_pred = model.predict(X_test_scaled)
+
+# Étape 7 : Évaluation
+print("Précision :", accuracy_score(y_test, y_pred))
+print(classification_report(y_test, y_pred, target_names=data.target_names))
+```
+
+> 💡 Pour les modèles de régression, utilisez `mean_squared_error`, `r2_score`, etc.
+> 💡 Pour le clustering, pas besoin de `y`, utilisez simplement `.fit(X)` puis `.labels_`
+
+---
+
 Créé avec ❤️ pour les apprenants en IA

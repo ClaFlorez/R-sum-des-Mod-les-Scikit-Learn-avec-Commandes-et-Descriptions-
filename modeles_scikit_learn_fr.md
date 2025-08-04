@@ -8,11 +8,11 @@ Prédit une **catégorie** ou une **étiquette** (ex : maladie / pas maladie).
 
 **Modèles principaux :**
 
-- `` : Modèle simple et efficace pour les données linéairement séparables.
-- `` : Forêt d'arbres de décision pour une précision robuste.
-- `` : Classe selon les voisins les plus proches.
-- `` : Machine à vecteurs de support (kernel linéaire ou non).
-- `` : Perceptron multicouche, réseau de neurones de base.
+* `LogisticRegression` : Modèle simple et efficace pour les données linéairement séparables.
+* `RandomForestClassifier` : Forêt d'arbres de décision pour une précision robuste.
+* `KNeighborsClassifier` : Classe selon les voisins les plus proches.
+* `SVC` : Machine à vecteurs de support (kernel linéaire ou non).
+* `MLPClassifier` : Perceptron multicouche, réseau de neurones de base.
 
 **Exemple :**
 
@@ -31,11 +31,11 @@ Prédit une **valeur continue** (ex : revenu, prix d'une maison).
 
 **Modèles principaux :**
 
-- `` : Modèle linéaire simple.
-- `` : Version régression des forêts aléatoires.
-- `` : Régression avec régularisation L1 (sélectionne les variables).
-- `` : Régression par vecteurs de support.
-- `` : Réseau de neurones pour régression.
+* `LinearRegression` : Modèle linéaire simple.
+* `RandomForestRegressor` : Version régression des forêts aléatoires.
+* `Lasso` : Régression avec régularisation L1 (sélectionne les variables).
+* `SVR` : Régression par vecteurs de support.
+* `MLPRegressor` : Réseau de neurones pour régression.
 
 **Exemple :**
 
@@ -54,10 +54,10 @@ Identifie automatiquement des **groupes** dans des données non étiquetées.
 
 **Modèles principaux :**
 
-- `` : Regroupe les points en k groupes basés sur la distance.
-- `` : Densité de points pour identifier des clusters.
-- `` : Glissement de la moyenne vers des zones de forte densité.
-- `` : Approche hiérarchique ascendante.
+* `KMeans` : Regroupe les points en k groupes basés sur la distance.
+* `DBSCAN` : Densité de points pour identifier des clusters.
+* `MeanShift` : Glissement de la moyenne vers des zones de forte densité.
+* `AgglomerativeClustering` : Approche hiérarchique ascendante.
 
 **Exemple :**
 
@@ -76,9 +76,9 @@ Simplifie les données en **réduisant le nombre de variables**, tout en gardant
 
 **Modèles principaux :**
 
-- `` : Analyse en composantes principales.
-- `` : SVD pour données clairsemées (sparse).
-- `` : Réduction non linéaire pour visualisation.
+* `PCA` : Analyse en composantes principales.
+* `TruncatedSVD` : SVD pour données clairsemées (sparse).
+* `TSNE` : Réduction non linéaire pour visualisation.
 
 **Exemple :**
 
@@ -96,11 +96,11 @@ Combine plusieurs modèles simples pour **renforcer la précision**.
 
 **Modèles principaux :**
 
-- `` : Moyenne de plusieurs modèles sur différents sous-ensembles.
-- `` : Apprentissage adaptatif avec des poids.
-- `` : Boosting par gradient (puissant mais lent).
-- `` : Vote majoritaire de plusieurs modèles.
-- `` : Combine les sorties de plusieurs modèles via un méta-modèle.
+* `BaggingClassifier` : Moyenne de plusieurs modèles sur différents sous-ensembles.
+* `AdaBoostClassifier` : Apprentissage adaptatif avec des poids.
+* `GradientBoostingClassifier` : Boosting par gradient (puissant mais lent).
+* `VotingClassifier` : Vote majoritaire de plusieurs modèles.
+* `StackingClassifier` : Combine les sorties de plusieurs modèles via un méta-modèle.
 
 **Exemple :**
 
@@ -125,4 +125,3 @@ model.score(X_test, y_test)  # optionnel
 ---
 
 Créé avec ❤️ pour les apprenants en IA
-
